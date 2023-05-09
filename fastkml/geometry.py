@@ -170,12 +170,12 @@ class Geometry(_BaseObject):
         )
         if len(coordinates[0]) == 2:
             if config.FORCE3D:  # and not clampToGround:
-                tuples = (f"{c[0]:f},{c[1]:f},0.000000" for c in coordinates)
+                tuples = (f"{c[0]:.8f},{c[1]:.8f},0.00000000" for c in coordinates)
             else:
-                tuples = (f"{c[0]:f},{c[1]:f}" for c in coordinates)
+                tuples = (f"{c[0]:.8f},{c[1]:.8f}" for c in coordinates)
         elif len(coordinates[0]) == 3:
             tuples = (
-                f"{c[0]:f},{c[1]:f},{c[2]:f}" for c in coordinates  # type: ignore[misc]
+                f"{c[0]:.8f},{c[1]:.8f},{c[2]:.8f}" for c in coordinates  # type: ignore[misc]
             )
         else:
             raise ValueError("Invalid dimensions")
